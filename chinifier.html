@@ -1,0 +1,1301 @@
+<html>
+<head>
+<style>
+body {
+    background-color: rgb(150 , 255 , 0);
+    }
+    .txt {
+        text-align: center;
+        font-size: 20px;
+    }
+</style>
+</head>
+<body>
+
+
+<select id="ddbox">
+<option value="opt1" id="option1">WHAT CITY WERE YOU BORN IN</option>
+<option value="opt2" id="option2">WHAT'S YOUR GODMOTHER'S FIRST NAME</option>
+<option value="opt3" id="option3">WHATS YOUR FAVORITE MOVIE</option>
+<option value="opt4" id="option4">WHAT MONTH AND DAY WAS YOUR MOTHER BORN IN</option>
+<option value="opt5" id="option5">WHAT'S YOUR FIRST PET'S NAME</option>
+<option value="opt6" id="option6">INPUT YOUR OTHER PASSWORD </option>
+</select><br>
+<input type="text" id="awnser"><br>
+INPUT YOUR PASSWORD:<br>
+<input type="text" id="oldpass"><br>
+<button id="activator" onclick="turnAll()">GENERATE</button>
+<p id="final"></p><br>
+<p id="help" onclick="help()">how does it work?</p>
+<p id="help2"></p>
+<script>
+function turnToNumb(char1 , char2 ,  did) {
+         var old = document.getElementById("oldpass").value;
+     var awns = document.getElementById("awnser").value
+    var ddbox = document.getElementById("ddbox");
+    var selected = ddbox.selectedIndex;
+    switch(selected) {
+        case 0:
+        factor = 0;
+        break;
+        case 1:
+        factor = 36;
+        break;
+        case 2:
+        factor = 72;
+        break;
+        case 3:
+        factor = 108;
+        break;
+        case 4:
+        factor = 144;
+        break;
+        case 5:
+        factor = 180;
+    }
+    switch(char1) {
+    case " ":
+        letter = 1;
+        break;
+        case "a":
+        letter =  2;
+        break;
+        case "b":
+        letter = 3;
+        break;
+        case "c":
+        letter = 4;
+        break;
+        case "d":
+        letter = 5;
+        break;
+        case "e":
+        letter = 6;
+        break;
+        case "f":
+        letter = 7;
+        break;
+        case "g":
+        letter = 8;
+        break;
+        case "h":
+        letter = 9;
+        break;
+        case "i":
+        letter = 10;
+        break;
+        case "j":
+        letter = 11;
+        break;
+        case "k":
+        letter = 12;
+        break;
+        case "l":
+        letter = 13;
+        break;
+        case "m":
+        letter =14;
+        break;
+        case "n":
+        letter = 15;
+        break;
+        case "o":
+        letter = 16;
+        break;
+        case "p":
+        letter = 17;
+        break;
+              case "q":
+        letter = 18;
+        break;
+              case "r":
+        letter = 19;
+        break;
+              case "s":
+        letter = 20;
+        break;
+              case "t":
+        letter = 21;
+        break;
+              case "u":
+        letter = 22;
+        break;
+              case "v":
+        letter = 23;
+        break;
+              case "w":
+        letter = 24;
+        break;
+              case "x":
+        letter = 25;
+        break;
+              case "y":
+        letter = 26;
+        break;
+              case "z":
+        letter = 27;
+        break;
+        case "1":
+        letter = 28;
+        break;
+        case "2":
+        letter = 29;
+        break;
+        case "3":
+        letter = 30;
+        break;
+        case "4":
+        letter = 31;
+        break;
+        case "5":
+        letter = 32;
+        break;
+        case "8":
+        letter = 33;
+        break;
+        case "7":
+        letter = 34;
+        break;
+        case "6":
+        letter = 35;
+        break;
+        case "9":
+        letter = 36;
+        break;
+        case "A":
+        letter = 37;
+        break;
+        case "B":
+        letter = 38;
+        break;
+        case "C":
+letter = 39;
+break;
+case "D":
+letter = 40;
+break;
+case "E":
+letter = 41;
+break;
+case "F":
+letter = 42;
+break;
+case "G":
+letter = 43;
+break;
+case "H":
+letter = 44;
+break;
+case "I":
+letter = 45;
+break;
+case "J":
+letter = 46;
+break;
+case "K":
+letter = 47;
+break;
+case "L":
+letter = 48;
+break;
+case "M":
+letter = 49;
+break;
+case "N":
+letter =50;
+break;
+case "O":
+letter = 51;
+break;
+case "P":
+letter = 52;
+break;
+case "Q":
+letter = 53;
+break;
+case "R":
+letter = 54;
+break;
+case "S":
+letter = 55;
+break;
+case "T":
+letter = 56;
+break;
+case "U":
+letter = 57;
+break;
+case "V":
+letter = 58;
+break;
+case "W":
+letter = 59;
+break;
+case "X":
+letter = 60;
+break;
+case "Y":
+letter = 61;
+break;
+case "Z":
+letter = 62;
+break;
+        }
+    switch(char2) {
+    case " ":
+        letter2 = 1;
+        break;
+        case "a":
+        letter2 =  2;
+        break;
+        case "b":
+        letter2 = 3;
+        break;
+        case "c":
+        letter2 = 4;
+        break;
+        case "d":
+        letter2 = 5;
+        break;
+        case "e":
+        letter2 = 6;
+        break;
+        case "f":
+        letter2 = 7;
+        break;
+        case "g":
+        letter2 = 8;
+        break;
+        case "h":
+        letter2 = 9;
+        break;
+        case "i":
+        letter2 = 10;
+        break;
+        case "j":
+        letter2 = 11;
+        break;
+        case "k":
+        letter2 = 12;
+        break;
+        case "l":
+        letter2 = 13;
+        break;
+        case "m":
+        letter2 =14;
+        break;
+        case "n":
+        letter2 = 15;
+        break;
+        case "o":
+        letter2 = 16;
+        break;
+        case "p":
+        letter2 = 17;
+        break;
+              case "q":
+        letter2 = 18;
+        break;
+              case "r":
+        letter2 = 19;
+        break;
+              case "s":
+        letter2 = 20;
+        break;
+              case "t":
+        letter2 = 21;
+        break;
+              case "u":
+        letter2 = 22;
+        break;
+              case "v":
+        letter2 = 23;
+        break;
+              case "w":
+        letter2 = 24;
+        break;
+              case "x":
+        letter2 = 25;
+        break;
+              case "y":
+        letter2 = 26;
+        break;
+              case "z":
+        letter2 = 27;
+        break;
+        case "1":
+        letter2 = 28;
+        break;
+        case "2":
+        letter2 = 29;
+        break;
+        case "3":
+        letter2 = 30;
+        break;
+        case "4":
+        letter2 = 31;
+        break;
+        case "5":
+        letter2 = 32;
+        break;
+        case "8":
+        letter2 = 33;
+        break;
+        case "7":
+        letter2 = 34;
+        break;
+        case "6":
+        letter2 = 35;
+        break;
+        case "9":
+        letter2 = 36;
+        break;
+        case "A":
+        letter2 = 37;
+break;
+case "B":
+letter2 = 38;
+break;
+case "C":
+letter2 = 39;
+break;
+case "D":
+letter2 = 40;
+break;
+case "E":
+letter2 = 41;
+break;
+case "F":
+letter2 = 42;
+break;
+case "G":
+letter2 = 43;
+break;
+case "H":
+letter2 = 44;
+break;
+case "I":
+letter2 = 45;
+break;
+case "J":
+letter2 = 46;
+break;
+case "K":
+letter2 = 47;
+break;
+case "L":
+letter2 = 48;
+break;
+case "M":
+letter2 = 49;
+break;
+case "N":
+letter2 =50;
+break;
+case "O":
+letter2 = 51;
+break;
+case "P":
+letter2 = 52;
+break;
+case "Q":
+letter2 = 53;
+break;
+case "R":
+letter2 = 54;
+break;
+case "S":
+letter2 = 55;
+break;
+case "T":
+letter2 = 56;
+break;
+case "U":
+letter2 = 57;
+break;
+case "V":
+letter2 = 58;
+break;
+case "W":
+letter2 = 59;
+break;
+case "X":
+letter2 = 60;
+break;
+case "Y":
+letter2 = 61;
+break;
+case "Z":
+letter2 = 62;
+break;
+                 }
+        var finalNumb = Math.abs(factor + letter - letter2);
+        switch(finalNumb) {
+
+case 1:
+letter3 = "你";
+break;
+case 2:
+letter3 = "是";
+break;
+case 3:
+letter3 = "了";
+break;
+case 4:
+letter3 = "不";
+break;
+case 5:
+letter3 = "们";
+break;
+case 6:
+letter3 = "这";
+break;
+case 7:
+letter3 = "一";
+break;
+case 8:
+letter3 = "他";
+break;
+case 9:
+letter3 = "么";
+break;
+case 10:
+letter3 = "在";
+break;
+case 11:
+letter3 = "有";
+break;
+case 12:
+letter3 = "个";
+break;
+case 13:
+letter3 = "好";
+break;
+case 14:
+letter3 = "来";
+break;
+case 15:
+letter3 = "人";
+break;
+case 16:
+letter3 = "那";
+break;
+case 17:
+letter3 = "要";
+break;
+case 18:
+letter3 = "会";
+break;
+case 19:
+letter3 = "就";
+break;
+case 20:
+letter3 = "什";
+break;
+case 21:
+letter3 = "没";
+break;
+case 22:
+letter3 = "到";
+break;
+case 23:
+letter3 = "说";
+break;
+case 24:
+letter3 = "吗";
+break;
+case 25:
+letter3 = "为";
+break;
+case 26:
+letter3 = "想";
+break;
+case 27:
+letter3 = "能";
+break;
+case 28:
+letter3 = "上";
+break;
+case 29:
+letter3 = "去";
+break;
+case 30:
+letter3 = "道";
+break;
+case 31:
+letter3 = "她";
+break;
+case 32:
+letter3 = "很";
+break;
+case 33:
+letter3 = "看";
+break;
+case 34:
+letter3 = "可";
+break;
+case 35:
+letter3 = "知";
+break;
+case 36:
+letter3 = "得";
+break;
+case 37:
+letter3 = "过";
+break;
+case 38:
+letter3 = "吧";
+break;
+case 39:
+letter3 = "还";
+break;
+case 40:
+letter3 = "对";
+break;
+case 41:
+letter3 = "里";
+break;
+case 42:
+letter3 = "以";
+break;
+case 43:
+letter3 = "都";
+break;
+case 44:
+letter3 = "事";
+break;
+case 45:
+letter3 = "子";
+break;
+case 46:
+letter3 = "生";
+break;
+case 47:
+letter3 = "时";
+break;
+case 48:
+letter3 = "样";
+break;
+case 49:
+letter3 = "也";
+break;
+case 50:
+letter3 = "下";
+break;
+case 51:
+letter3 = "真";
+break;
+case 52:
+letter3 = "做";
+break;
+case 53:
+letter3 = "大";
+break;
+case 54:
+letter3 = "啊";
+break;
+case 55:
+letter3 = "怎";
+break;
+case 56:
+letter3 = "出";
+break;
+case 57:
+letter3 = "点";
+break;
+case 58:
+letter3 = "起";
+break;
+case 59:
+letter3 = "天";
+break;
+case 60:
+letter3 = "把";
+break;
+case 61:
+letter3 = "开";
+break;
+case 62:
+letter3 = "让";
+break;
+case 63:
+letter3 = "给";
+break;
+case 64:
+letter3 = "但";
+break;
+case 65:
+letter3 = "谢";
+break;
+case 66:
+letter3 = "着";
+break;
+case 67:
+letter3 = "只";
+break;
+case 68:
+letter3 = "些 ";
+break;
+case 69:
+letter3 = "家";
+break;
+case 70:
+letter3 = "后";
+break;
+case 71:
+letter3 = "儿";
+break;
+case 72:
+letter3 = "多";
+break;
+case 73:
+letter3 = "意";
+break;
+case 74:
+letter3 = "别";
+break;
+case 75:
+letter3 = "所";
+break;
+case 76:
+letter3 = "小";
+break;
+case 77:
+letter3 = "自 ";
+break;
+case 78:
+letter3 = "回";
+break;
+case 79:
+letter3 = "然";
+break;
+case 80:
+letter3 = "果";
+break;
+case 81:
+letter3 = "心";
+break;
+case 82:
+letter3 = "走";
+break;
+case 83:
+letter3 = "定 ";
+break;
+case 84:
+letter3 = "听";
+break;
+case 85:
+letter3 = "太";
+break;
+case 86:
+letter3 = "该";
+break;
+case 87:
+letter3 = "当";
+break;
+case 88:
+letter3 = "经";
+break;
+case 89:
+letter3 = "妈 ";
+break;
+case 90:
+letter3 = "用";
+break;
+case 91:
+letter3 = "打";
+break;
+case 92:
+letter3 = "地";
+break;
+case 93:
+letter3 = "再";
+break;
+case 94:
+letter3 = "因";
+break;
+case 95:
+letter3 = "呢 ";
+break;
+case 96:
+letter3 = "告";
+break;
+case 97:
+letter3 = "最";
+break;
+case 98:
+letter3 = "手 ";
+break;
+case 99:
+letter3 = "前";
+break;
+case 100:
+letter3 = "找";
+break;
+case 101:
+letter3 = "行";
+break;
+case 102:
+letter3 = "快";
+break;
+case 103:
+letter3 = "而";
+break;
+case 104:
+letter3 = "死";
+break;
+case 105:
+letter3 = "先";
+break;
+case 106:
+letter3 = "像";
+break;
+case 107:
+letter3 = "等";
+break;
+case 108:
+letter3 = "被";
+break;
+case 109:
+letter3 = "从";
+break;
+case 110:
+letter3 = "明";
+break;
+case 111:
+letter3 = "情";
+break;
+case 112:
+letter3 = "作";
+break;
+case 113:
+letter3 = "跟";
+break;
+case 114:
+letter3 = "面";
+break;
+case 115:
+letter3 = "诉";
+break;
+case 116:
+letter3 = "爱";
+break;
+case 117:
+letter3 = "已";
+break;
+case 118:
+letter3 = "之";
+break;
+case 119:
+letter3 = "度";
+break;
+case 120:
+letter3 = "花";
+break;
+case 121:
+letter3 = "持";
+break;
+case 122:
+letter3 = "光";
+break;
+case 123:
+letter3 = "与";
+break;
+case 124:
+letter3 = "穿 ";
+break;
+case 125:
+letter3 = "愿";
+break;
+case 126:
+letter3 = "象";
+break;
+case 127:
+letter3 = "影";
+break;
+case 128:
+letter3 = "二";
+break;
+case 129:
+letter3 = "喝";
+break;
+case 130:
+letter3 = "月";
+break;
+case 131:
+letter3 = "器";
+break;
+case 132:
+letter3 = "察";
+break;
+case 133:
+letter3 = "制";
+break;
+case 134:
+letter3 = "嘛";
+break;
+case 135:
+letter3 = "哈";
+break;
+case 136:
+letter3 = "助";
+break;
+case 137:
+letter3 = "达";
+break;
+case 138:
+letter3 = "海";
+break;
+case 139:
+letter3 = "托";
+break;
+case 140:
+letter3 = "除";
+break;
+case 141:
+letter3 = "写";
+break;
+case 142:
+letter3 = "绝";
+break;
+case 143:
+letter3 = "界";
+break;
+case 144:
+letter3 = "帝";
+break;
+case 145:
+letter3 = "姐";
+break;
+case 146:
+letter3 = "反";
+break;
+case 147:
+letter3 = "担";
+break;
+case 148:
+letter3 = "司";
+break;
+case 149:
+letter3 = "强";
+break;
+case 150:
+letter3 = "论";
+break;
+case 151:
+letter3 = "飞";
+break;
+case 152:
+letter3 = "亚";
+break;
+case 153:
+letter3 = "续";
+break;
+case 154:
+letter3 = "视";
+break;
+case 155:
+letter3 = "母";
+break;
+case 156:
+letter3 = "军";
+break;
+case 157:
+letter3 = "跑";
+break;
+case 158:
+letter3 = "阿";
+break;
+case 159:
+letter3 = "尽";
+break;
+case 160:
+letter3 = "注";
+break;
+case 161:
+letter3 = "弄";
+break;
+case 162:
+letter3 = "线";
+break;
+case 163:
+letter3 = "代";
+break;
+case 164:
+letter3 = "忙";
+break;
+case 165:
+letter3 = "坏";
+break;
+case 166:
+letter3 = "久";
+break;
+case 167:
+letter3 = "议";
+break;
+case 168:
+letter3 = "算";
+break;
+case 169:
+letter3 = "性";
+break;
+case 170:
+letter3 = "此";
+break;
+case 171:
+letter3 = "必";
+break;
+case 172:
+letter3 = "备 ";
+break;
+case 173:
+letter3 = "合";
+break;
+case 174:
+letter3 = "德 ";
+break;
+case 175:
+letter3 = "队";
+break;
+case 176:
+letter3 = "试";
+break;
+case 177:
+letter3 = "抱 ";
+break;
+case 178:
+letter3 = "医";
+break;
+case 179:
+letter3 = "通";
+break;
+case 180:
+letter3 = "体 ";
+break;
+case 181:
+letter3 = "乐";
+break;
+case 182:
+letter3 = "并";
+break;
+case 183:
+letter3 = "三";
+break;
+case 184:
+letter3 = "早";
+break;
+case 185:
+letter3 = "门";
+break;
+case 186:
+letter3 = "害";
+break;
+case 187:
+letter3 = "歉";
+break;
+case 188:
+letter3 = "选";
+break;
+case 189:
+letter3 = "嗨";
+break;
+case 190:
+letter3 = "房 ";
+break;
+case 191:
+letter3 = "命";
+break;
+case 192:
+letter3 = "且 ";
+break;
+case 193:
+letter3 = "向";
+break;
+case 194:
+letter3 = "兴";
+break;
+case 195:
+letter3 = "球";
+break;
+case 196:
+letter3 = "入";
+break;
+case 197:
+letter3 = "照";
+break;
+case 198:
+letter3 = "提";
+break;
+case 199:
+letter3 = "掉";
+break;
+case 200:
+letter3 = "夫";
+break;
+case 201:
+letter3 = "路";
+break;
+case 202:
+letter3 = "演";
+break;
+case 203:
+letter3 = "够";
+break;
+case 204:
+letter3 = "日";
+break;
+case 205:
+letter3 = "案";
+break;
+case 206:
+letter3 = "舞";
+break;
+case 207:
+letter3 = "决";
+break;
+case 208:
+letter3 = "求";
+break;
+case 209:
+letter3 = "字";
+break;
+case 210:
+letter3 = "呃 ";
+break;
+case 211:
+letter3 = "肯";
+break;
+case 212:
+letter3 = "目";
+break;
+case 213:
+letter3 = "笑";
+break;
+case 214:
+letter3 = "神";
+break;
+case 215:
+letter3 = "父";
+break;
+case 216:
+letter3 = "模";
+break;
+case 217:
+letter3 = "找";
+break;
+case 218:
+letter3 = "行";
+break;
+case 219:
+letter3 = "快";
+break;
+case 220:
+letter3 = "而";
+break;
+case 221:
+letter3 = "死";
+break;
+case 222:
+letter3 = "先";
+break;
+case 223:
+letter3 = "像";
+break;
+case 224:
+letter3 = "等";
+break;
+case 225:
+letter3 = "被";
+break;
+case 226:
+letter3 = "从";
+break;
+case 227:
+letter3 = "明";
+break;
+case 228:
+letter3 = "情";
+break;
+case 229:
+letter3 = "作";
+break;
+case 230:
+letter3 = "跟";
+break;
+case 231:
+letter3 = "面";
+break;
+case 232:
+letter3 = "诉";
+break;
+case 233:
+letter3 = "爱";
+break;
+case 234:
+letter3 = "已";
+break;
+case 235:
+letter3 = "之";
+break;
+case 236:
+letter3 = "度";
+break;
+case 237:
+letter3 = "花";
+break;
+case 238:
+letter3 = "持";
+break;
+case 239:
+letter3 = "光";
+break;
+case 240:
+letter3 = "与";
+break;
+case 241:
+letter3 = "穿 ";
+break;
+case 242:
+letter3 = "愿";
+break;
+case 243:
+letter3 = "象";
+break;
+          default:
+            letter3 = "之";
+            break;
+}
+
+        var finalP = document.getElementById("final");
+        var fnl = finalP.textContent;
+        finalP.textContent = fnl + letter3;
+    
+        
+        }
+    
+ function turnToNumb1() {
+     var old = document.getElementById("oldpass").value;
+     var awns = document.getElementById("awnser").value;
+     var finalP = document.getElementById("final");
+     var fnl = finalP.textContent;
+     turnToNumb(old[0] , awns[0] , fnl[0])
+ }
+function turnToNumb3() {
+     var old = document.getElementById("oldpass").value;
+     var awns = document.getElementById("awnser").value;
+      var finalP = document.getElementById("final");
+     var fnl = finalP.textContent;
+     turnToNumb(old[1] , awns[1] , fnl[1])
+ }
+function turnToNumb4() {
+     var old = document.getElementById("oldpass").value;
+     var awns = document.getElementById("awnser").value;
+     var finalP = document.getElementById("final");
+     var fnl = finalP.textContent;
+     turnToNumb(old[2] , awns[2] , fnl[2])
+ }
+function turnToNumb5() {
+     var old = document.getElementById("oldpass").value;
+     var awns = document.getElementById("awnser").value;
+     var finalP = document.getElementById("final");
+     var fnl = finalP.textContent;
+     turnToNumb(old[3] , awns[3] , fnl[3])
+ }
+function turnToNumb6() {
+     var old = document.getElementById("oldpass").value;
+     var awns = document.getElementById("awnser").value;
+     var finalP = document.getElementById("final");
+     var fnl = finalP.textContent;
+     turnToNumb(old[4] , awns[4] , fnl[4])
+ }
+function turnToNumb7() {
+     var old = document.getElementById("oldpass").value;
+     var awns = document.getElementById("awnser").value;
+     var finalP = document.getElementById("final");
+     var fnl = finalP.textContent;
+     turnToNumb(old[5] , awns[5] , fnl[5])
+ }
+function turnToNumb8() {
+     var old = document.getElementById("oldpass").value;
+     var awns = document.getElementById("awnser").value;
+     var finalP = document.getElementById("final");
+     var fnl = finalP.textContent;
+     turnToNumb(old[6] , awns[6] , fnl[6])
+ }
+function turnToNumb9() {
+     var old = document.getElementById("oldpass").value;
+     var awns = document.getElementById("awnser").value;
+     var finalP = document.getElementById("final");
+     var fnl = finalP.textContent;
+     turnToNumb(old[7] , awns[7] , fnl[7])
+ }
+function turnToNumb10() {
+     var old = document.getElementById("oldpass").value;
+     var awns = document.getElementById("awnser").value;
+     var finalP = document.getElementById("final");
+     var fnl = finalP.textContent;
+     turnToNumb(old[8] , awns[8] , fnl[8])
+ }
+function turnToNumb11() {
+     var old = document.getElementById("oldpass").value;
+     var awns = document.getElementById("awnser").value;
+     var finalP = document.getElementById("final");
+     var fnl = finalP.textContent;
+     turnToNumb(old[9] , awns[9] , fnl[9])
+ }
+function turnToNumb12() {
+     var old = document.getElementById("oldpass").value;
+     var awns = document.getElementById("awnser").value;
+     var finalP = document.getElementById("final");
+     var fnl = finalP.textContent;
+     turnToNumb(old[10] , awns[10] , fnl[10])
+ }
+function turnToNumb2() {
+    var old = document.getElementById("oldpass").value;
+     var awns = document.getElementById("awnser").value;
+     var finalP = document.getElementById("final");
+     var fnl = finalP.textContent;
+     turnToNumb(old[11] , awns[11] , fnl[11])
+ }
+ countr = 0;
+function turnAll()
+{if (countr == 0) {
+    turnToNumb1();
+    turnToNumb2();
+    turnToNumb3();
+    turnToNumb4();
+    turnToNumb5();
+    turnToNumb6();
+    turnToNumb7();
+    turnToNumb9();
+    turnToNumb10();
+    turnToNumb11();
+    turnToNumb12();
+    turnToNumb8();
+    countr++;
+    document.getElementById("activator").innerHTML = "go back";}
+    else if (countr == 1) {
+        document.getElementById("final").innerHTML = " ";
+        countr--;
+        document.getElementById("activator").innerHTML = "GENERATE"}
+        
+    }
+
+var counter = 0;
+function help() {
+    if (counter == 0) {
+    document.getElementById("help2").innerHTML = "this site uses a question only you know the awnser to as a one time pad to shift the letters in your password randomly and irreversibly."
+    counter++;
+    document.getElementById("help").innerHTML = "hide";
+    }
+    else if (counter == 1) {
+        document.getElementById("help2").innerHTML = " ";
+        counter--;
+           document.getElementById("help").innerHTML = "how does it work?";
+    }
+    
+}
+
+</script>
+</body>
+</html>

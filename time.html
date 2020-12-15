@@ -1,0 +1,250 @@
+<html>
+<head>
+<style>
+
+input {width: 60px;}
+#body {
+background: black;
+}
+
+#change {
+font-size: 100px;
+}
+#main {
+position: relative;
+left: 40px;
+top: 200px;
+color: red;
+}
+.director {
+position: relative;
+top: 300px;
+width: 200px;
+height: 70px;
+font-size: 30px;
+}
+#dayend {
+position: relative;
+left: 20px;
+}
+#death {
+position: relative;
+left: 100px;
+}
+#gauge {
+position: relative;
+left: 180px;
+}
+#menu {
+position: relative;
+left: 260px;
+}
+#prog {
+border: 5px solid rgb(50 , 25 , 0);
+background-color: white;
+width: 1250px;
+height: 30px;
+position: relative;
+}
+#prog2 {
+border: 5px solid rgb(50 , 25 , 0);
+background-color: white;
+width: 1250px;
+height: 30px;
+position: relative;
+}
+#value {
+background-color: red;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 50%;
+}
+#value2 {
+background-color: red;
+position: absolute;
+top: 0;
+bottom: 0;
+left: 0;
+right: 50%;
+}
+</style>
+</head>
+<body id="body">
+<div id="main">
+<span id="change">"MOTIVATION"</span><br>
+</div>
+<button class="director" id="dayend" onclick="dayEnd()">DAY END</button>
+<button class="director" id="death" onclick="death()"> DEATH</button>
+<button class="director" id="gauge" onclick="gauge()">VISUALIZED</button>
+<button class="director" id="menu" onclick="menu()">MENU</button>
+
+</div>
+<script>
+var main = document.getElementById("main"); 
+
+window.addEventListener("load" , function () {if(localStorage.getItem("pageLoad") == "day") {
+makePageDay();
+}})
+
+
+window.addEventListener("load" , function () {if(localStorage.getItem("pageLoad") == "dead") {
+makePageDead();
+}})
+
+
+window.addEventListener("load" , function () {if(localStorage.getItem("pageLoad") == "gauge") {
+gauge();
+}})
+
+
+function dayEnd() {
+main.style.fontSize = "17px"
+window.localStorage.setItem("pageLoad" , "day");
+if (window.localStorage.getItem("daystart") != "empty"){
+makePageDay();}
+else {
+var textbox = document.createElement("INPUT");
+var textbox2 = document.createElement("INPUT");
+main.innerHTML = "when does your day end? (PS: AM is 0-11/PM is 13-23)<br>";
+main.appendChild(textbox);
+main.appendChild(textbox2);
+window.addEventListener("keyup" , function(e) {
+if (e.keyCode == 13){
+window.localStorage.setItem("daystart" , textbox.value);
+window.localStorage.setItem("daystart2" , textbox2.value);
+makePageDay();
+}})
+}
+}
+
+
+
+
+
+
+
+
+function makePageDay(){
+var dayInt = setInterval(function () {
+if (window.localStorage.getItem("pageLoad") != "day"){
+clearInterval(dayInt)
+}
+var daystart = window.localStorage.getItem("daystart");
+var daystart2 = window.localStorage.getItem("daystart2");
+if(window.localStorage.getItem("pageLoad") == "day") {
+var currentDate = new Date();
+var hours = daystart - currentDate.getHours();
+var minutes = daystart2 - currentDate.getMinutes() - 1;
+var seconds = 59 - currentDate.getSeconds();
+if (minutes < 0 ) {
+minutes = 60 + minutes;
+hours = parseInt(hours) - 1;
+}
+}
+if (hours < 0) {
+hours = hours + 24
+}
+var dayCounterFormula = document.createTextNode(hours + " : " + minutes + " : " + seconds);
+main.innerHTML = " ";
+main.style.fontSize = "220px";
+main.appendChild(dayCounterFormula)
+} , 1) 
+
+}
+
+
+
+
+function death() {
+window.localStorage.setItem("pageLoad" , "dead");
+if (window.localStorage.getItem("death") != "empty"){
+makePageDead();
+}
+else{
+main.style.fontSize = "17px";
+main.innerHTML = "INPUT: YEAR(1890-current)/MONTH(1-12)/DAY/HOUR/ OF BIRTH"
+var textbox = document.createElement("INPUT");
+var textbox2 = document.createElement("INPUT");
+var textbox3 = document.createElement("INPUT");
+var textbox4 = document.createElement("INPUT");
+main.appendChild(textbox);
+main.appendChild(textbox2);
+main.appendChild(textbox3);
+main.appendChild(textbox4);
+window.addEventListener("keyup" , function(e) {
+if (e.keyCode == 13){
+window.localStorage.setItem("death" , (parseInt(textbox.value) + 90) * 365.25 * 24 * 60 * 60 + parseInt(textbox2.value) * 30.5 * 24 * 60 * 60 + parseInt(textbox3.value) * 24 * 60 * 60 + parseInt(textbox4.value) * 60 * 60)
+makePageDead();
+}})
+}
+}
+
+
+
+function makePageDead() {
+var deadInt = setInterval(function () {
+if (window.localStorage.getItem("pageLoad") != "dead") {
+clearInterval(deadInt)
+}
+var tillDie = localStorage.getItem("death");
+var current = new Date();
+var timeNow = (current.getFullYear() * 365.25 * 24 * 60 * 60) + ((current.getMonth() + 1) * 30.5 * 24 * 60 * 60) + (current.getDate() * 24 * 60 * 60) + (current.getHours() * 60 * 60) + (current.getMinutes() * 60) + (current.getSeconds() + 1)
+main.innerHTML = " ";
+main.style.fontSize = "200px";
+main.appendChild(document.createTextNode(tillDie - timeNow))
+
+}  , 1)
+}
+
+function gauge() {
+main.style.fontSize = "17px";
+window.localStorage.setItem("pageLoad" , "gauge");
+var progbar = document.createElement("div");
+var progvalue = document.createElement("div");
+var progbar2 = document.createElement("div");
+var progvalue2 = document.createElement("div");
+progbar.id = "prog"
+progvalue.id = "value"
+progbar2.id = "prog2"
+progvalue2.id = "value2"
+main.innerHTML = "TILL DAY END"
+main.appendChild(progbar);
+main.appendChild(document.createElement("br"))
+main.appendChild(document.createTextNode("TILL DEATH"))
+main.appendChild(progbar2);
+progbar.appendChild(progvalue);
+progbar2.appendChild(progvalue2);
+var gauge = setInterval(function() {
+if (window.localStorage.getItem("pageLoad") != "gauge") {
+clearInterval(gauge)
+main.innerHTML = " "}
+var current = new Date();
+var timeNow = (current.getFullYear() * 365.25 * 24 * 60 * 60) + ((current.getMonth() + 1) * 30.5 * 24 * 60 * 60) + (current.getDate() * 24 * 60 * 60) + (current.getHours() * 60 * 60) + (current.getMinutes() * 60) + (current.getSeconds() + 1)
+var tillDead = localStorage.getItem("death");
+var currentT = current.getHours() + current.getMinutes()/60 + current.getSeconds()/3600;
+var targetT = parseInt(localStorage.getItem("daystart")) +  parseInt(localStorage.getItem("daystart2"))/60;
+progvalue.style.right = Math.abs((Math.floor((10000  + currentT)/(10000 + targetT))*24 - Math.abs(currentT - targetT))/24 * 100) + "%"
+progvalue2.style.right = (timeNow/tillDead)*100 + "%"
+} 
+, 1)
+gauge();
+}
+
+
+
+
+
+
+function menu() {
+localStorage.setItem("pageLoad" , "empty")
+localStorage.setItem("daystart" , "empty")
+localStorage.setItem("death" , "empty")
+location.reload();
+}
+
+</script>
+</body>
+</html>
+

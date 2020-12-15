@@ -1,0 +1,453 @@
+<html>
+<head>
+<style>
+.body {
+    background-color: cyan;
+}
+.big {
+    width: 60px;
+    height: 60px;
+    font-size: 50px;
+    text-align: center;
+    margin: auto;
+    background-color: white;
+
+}
+.thicc {
+    width: 60px;
+    height: 60px;
+    font-size: 50px;
+    text-align: center;
+    margin: auto;
+    background-color: white;
+}
+.button {
+    width: 60px;
+    height: 40px;
+}
+#top {
+    margin-left: 75px;
+}
+
+#bot {
+    margin-left: 135px;
+}
+#left {
+    margin-left: 80px;
+}
+#right {margin-left: 50px;}
+p {margin-bottom: 0px;}
+</style>
+</head>
+<body class="body">
+<div id="dive">
+<table border="1">
+<tr>
+<td id="a1" class="big">1</td>
+<td id="a2" class="big"> 1 </td>
+<td id="a3" class="big"> 1</td>
+<td id="a4" class="big">  1</td>
+<td id="a5" class="big"> 1  </td>
+</tr>
+<tr>
+<td id="b1" class="big">  1   </td>
+<td id="b2" class="big">   1  </td>
+<td id="b3" class="thicc">5</td>
+<td id="b4" class="big">    1  </td>
+<td id="b5" class="big">     1 </td>
+</tr>
+<tr>
+<td id="c1"  class="big">1  </td>
+<td id="c2" class="big">   1   </td>
+<td id="c3" class="big">   1 </td>
+<td id="c4" class="big">  1</td>
+<td id="c5" class="big">  1</td>
+</tr>
+<tr>
+<td id="d1" class="big">  1</td>
+<td id="d2" class="big">  1</td>
+<td id="d3" class="big">  1</td>
+<td id="d4" class="big">  1</td>
+<td id="d5" class="big">  1</td>
+</tr>
+<tr>
+<td id="e1" class="big"> 1</td>
+<td id="e2" class="big"> 1</td>
+<td id="e3" class="big">   1  </td>
+<td id="e4" class="big">1 </td>
+<td id="e5" class="big"> 1 </td>
+</tr>
+</table>
+<p>TIME: <span id="tiem">0</span>
+<button id="top" class="button" onclick="Tmovea1(); Tmoveb1(); Tmovec1(); Tmoved1(); Tmovea2(); Tmoveb2(); Tmovec2(); Tmoved2(); Tmovea3(); Tmoveb3(); Tmovec3(); Tmoved3(); Tmovea4(); Tmoveb4(); Tmovec4(); Tmoved4(); Tmovea5(); Tmoveb5(); Tmovec5(); Tmoved5();">^</button></p>
+<button id="left" class="button" onclick="Lmovea1(); Lmovea2(); Lmovea3(); Lmovea4(); Lmoveb1(); Lmoveb2(); Lmoveb3(); Lmoveb4(); Lmovec1(); Lmovec2(); Lmovec3(); Lmovec4(); Lmoved1(); Lmoved2(); Lmoved3(); Lmoved4(); Lmovee1(); Lmovee2(); Lmovee3(); Lmovee4();"><</button>
+<button id="right" class="button" onclick="Rmovea4(); Rmovea3(); Rmovea2(); Rmovea1(); Rmoveb4(); Rmoveb3(); Rmoveb2(); Rmoveb1(); Rmovec4(); Rmovec3(); Rmovec2(); Rmovec1(); Rmoved4(); Rmoved3(); Rmoved2(); Rmoved1(); Rmovee4(); Rmovee3(); Rmovee2(); Rmovee1();">></button><br>
+<button id="bot" class="button" onclick="Bmoved1(); Bmovec1(); Bmoveb1(); Bmovea1(); Bmoved2(); Bmovec2(); Bmoveb2(); Bmovea2(); Bmoved3(); Bmovec3(); Bmoveb3(); Bmovea3(); Bmoved4(); Bmovec4(); Bmoveb4(); Bmovea4(); Bmoved5(); Bmovec5(); Bmoveb5(); Bmovea5();">v</button>
+</div>
+
+<p> HIGH SCORE: <span id="high">0</span></p>
+<button onclick="bestart()">RESTART</button>
+<script>
+
+//MOVEMENT CODE
+
+
+
+//MOVING ELEMENT TO DIV RIGHT OF IT
+function moveRight(old , jdid) {
+    var detect = document.getElementById(old).innerHTML;
+    if (detect == 5) {
+        document.getElementById(old).innerHTML = 1;
+        document.getElementById(jdid).innerHTML = 5;
+    }
+}
+
+    function Rmovea1() {moveRight("a1" , "a2")}
+    function Rmovea2() {moveRight("a2" , "a3")}
+    function Rmovea3() {moveRight("a3" , "a4")}
+    function Rmovea4() {moveRight("a4" , "a5")}
+    function Rmoveb1() {moveRight("b1" , "b2")}
+    function Rmoveb2() {moveRight("b2" , "b3")}
+    function Rmoveb3() {moveRight("b3" , "b4")}
+    function Rmoveb4() {moveRight("b4" , "b5")}
+    function Rmovec1() {moveRight("c1" , "c2")}
+    function Rmovec2() {moveRight("c2" , "c3")}
+    function Rmovec3() {moveRight("c3" , "c4")}
+    function Rmovec4() {moveRight("c4" , "c5")}
+    function Rmoved1() {moveRight("d1" , "d2")}
+    function Rmoved2() {moveRight("d2" , "d3")}
+    function Rmoved3() {moveRight("d3" , "d4")}
+    function Rmoved4() {moveRight("d4" , "d5")}
+    function Rmovee1() {moveRight("e1" , "e2")}
+    function Rmovee2() {moveRight("e2" , "e3")}
+    function Rmovee3() {moveRight("e3" , "e4")}
+    function Rmovee4() {moveRight("e4" , "e5")}
+    
+    
+    
+    //MOVING ELEMENT TO A DIV LEFT OF IT
+function moveLeft(jdid , old) {
+    var detect = document.getElementById(old).innerHTML;
+    if (detect == 5) {
+        document.getElementById(old).innerHTML = 1;
+        document.getElementById(jdid).innerHTML = 5;
+    }
+}
+
+    function Lmovea1() {moveLeft("a1" , "a2")}
+    function Lmovea2() {moveLeft("a2" , "a3")}
+    function Lmovea3() {moveLeft("a3" , "a4")}
+    function Lmovea4() {moveLeft("a4" , "a5")}
+    function Lmoveb1() {moveLeft("b1" , "b2")}
+    function Lmoveb2() {moveLeft("b2" , "b3")}
+    function Lmoveb3() {moveLeft("b3" , "b4")}
+    function Lmoveb4() {moveLeft("b4" , "b5")}
+    function Lmovec1() {moveLeft("c1" , "c2")}
+    function Lmovec2() {moveLeft("c2" , "c3")}
+    function Lmovec3() {moveLeft("c3" , "c4")}
+    function Lmovec4() {moveLeft("c4" , "c5")}
+    function Lmoved1() {moveLeft("d1" , "d2")}
+    function Lmoved2() {moveLeft("d2" , "d3")}
+    function Lmoved3() {moveLeft("d3" , "d4")}
+    function Lmoved4() {moveLeft("d4" , "d5")}
+    function Lmovee1() {moveLeft("e1" , "e2")}
+    function Lmovee2() {moveLeft("e2" , "e3")}
+    function Lmovee3() {moveLeft("e3" , "e4")}
+    function Lmovee4() {moveLeft("e4" , "e5")}
+    
+    
+    //MOVING ELEMENT TO A DIV UNDER IT
+    function moveBot(old , jdid) {
+        var detect = document.getElementById(old).innerHTML;
+        if (detect == 5) {
+            document.getElementById(old).innerHTML = 1;
+            document.getElementById(jdid).innerHTML = 5;
+        }
+    }
+    
+    
+    
+    function Bmovea1() {moveBot("a1" , "b1")}
+    function Bmoveb1() {moveBot("b1" , "c1")}
+    function Bmovec1() {moveBot("c1" , "d1")}
+    function Bmoved1() {moveBot("d1" , "e1")}
+    function Bmovea2() {moveBot("a2" , "b2")}
+    function Bmoveb2() {moveBot("b2" , "c2")}
+    function Bmovec2() {moveBot("c2" , "d2")}
+    function Bmoved2() {moveBot("d2" , "e2")}
+    function Bmovea3() {moveBot("a3" , "b3")}
+    function Bmoveb3() {moveBot("b3" , "c3")}
+    function Bmovec3() {moveBot("c3" , "d3")}
+    function Bmoved3() {moveBot("d3" , "e3")}
+    function Bmovea4() {moveBot("a4" , "b4")}
+    function Bmoveb4() {moveBot("b4" , "c4")}
+    function Bmovec4() {moveBot("c4" , "d4")}
+    function Bmoved4() {moveBot("d4" , "e4")}
+    function Bmovea5() {moveBot("a5" , "b5")}
+    function Bmoveb5() {moveBot("b5" , "c5")}
+    function Bmovec5() {moveBot("c5" , "d5")}
+    function Bmoved5() {moveBot("d5" , "e5")}
+    
+    
+    
+    //MOVING ELEMENT TO A DIV ABOVE IT
+function moveTop(jdid , old) {
+    var detect = document.getElementById(old).innerHTML;
+        if (detect == 5) {
+            document.getElementById(old).innerHTML = 1;
+            document.getElementById(jdid).innerHTML = 5;
+     }
+ }  
+ 
+    function Tmovea1() {moveTop("a1" , "b1")}
+    function Tmoveb1() {moveTop("b1" , "c1")}
+    function Tmovec1() {moveTop("c1" , "d1")}
+    function Tmoved1() {moveTop("d1" , "e1")}
+    function Tmovea2() {moveTop("a2" , "b2")}
+    function Tmoveb2() {moveTop("b2" , "c2")}
+    function Tmovec2() {moveTop("c2" , "d2")}
+    function Tmoved2() {moveTop("d2" , "e2")}
+    function Tmovea3() {moveTop("a3" , "b3")}
+    function Tmoveb3() {moveTop("b3" , "c3")}
+    function Tmovec3() {moveTop("c3" , "d3")}
+    function Tmoved3() {moveTop("d3" , "e3")}
+    function Tmovea4() {moveTop("a4" , "b4")}
+    function Tmoveb4() {moveTop("b4" , "c4")}
+    function Tmovec4() {moveTop("c4" , "d4")}
+    function Tmoved4() {moveTop("d4" , "e4")}
+    function Tmovea5() {moveTop("a5" , "b5")}
+    function Tmoveb5() {moveTop("b5" , "c5")}
+    function Tmovec5() {moveTop("c5" , "d5")}
+    function Tmoved5() {moveTop("d5" , "e5")}
+    
+    
+    //PC ARROW KEYS MOVEMENT
+    window.addEventListener('keyup' , function (e) {
+    switch(e.key) {
+        case "ArrowLeft":
+         Lmovea1(); 
+         Lmovea2(); 
+         Lmovea3(); 
+         Lmovea4(); 
+         Lmoveb1(); 
+         Lmoveb2(); 
+         Lmoveb3(); 
+         Lmoveb4(); 
+         Lmovec1(); 
+         Lmovec2(); 
+         Lmovec3(); 
+         Lmovec4(); 
+         Lmoved1(); 
+         Lmoved2(); 
+         Lmoved3(); 
+         Lmoved4(); 
+         Lmovee1(); 
+         Lmovee2(); 
+         Lmovee3(); 
+         Lmovee4();
+         break;
+        case "ArrowDown":
+        Bmoved1(); 
+        Bmovec1(); 
+        Bmoveb1(); 
+        Bmovea1(); 
+        Bmoved2(); 
+        Bmovec2(); 
+        Bmoveb2(); 
+        Bmovea2(); 
+        Bmoved3(); 
+        Bmovec3(); 
+        Bmoveb3(); 
+        Bmovea3(); 
+        Bmoved4(); 
+        Bmovec4(); 
+        Bmoveb4(); 
+        Bmovea4(); 
+        Bmoved5(); 
+        Bmovec5(); 
+        Bmoveb5(); 
+        Bmovea5();
+        break;
+        case "ArrowUp":
+        Tmovea1(); 
+        Tmoveb1(); 
+        Tmovec1(); 
+        Tmoved1(); 
+        Tmovea2(); 
+        Tmoveb2(); 
+        Tmovec2(); 
+        Tmoved2(); 
+        Tmovea3(); 
+        Tmoveb3(); 
+        Tmovec3(); 
+        Tmoved3(); 
+        Tmovea4(); 
+        Tmoveb4(); 
+        Tmovec4(); 
+        Tmoved4(); 
+        Tmovea5(); 
+        Tmoveb5(); 
+        Tmovec5(); 
+        Tmoved5();
+        break;
+        case "ArrowRight":
+        Rmovea4(); 
+        Rmovea3(); 
+        Rmovea2(); 
+        Rmovea1(); 
+        Rmoveb4(); 
+        Rmoveb3(); 
+        Rmoveb2(); 
+        Rmoveb1(); 
+        Rmovec4(); 
+        Rmovec3(); 
+        Rmovec2(); 
+        Rmovec1(); 
+        Rmoved4(); 
+        Rmoved3(); 
+        Rmoved2(); 
+        Rmoved1(); 
+        Rmovee4(); 
+        Rmovee3(); 
+        Rmovee2(); 
+        Rmovee1();
+        break;
+    }
+});
+    //LAZER CODE
+    
+    
+    //RED LAZER CODE
+function blast(first , second , third , fourth , fifth , sixth)
+{
+var a = document.getElementById(first).innerHTML;
+ var b = document.getElementById(second).innerHTML;
+ var c = document.getElementById(third).innerHTML;
+ var d = document.getElementById(fourth).innerHTML;
+ var e = document.getElementById(fifth).innerHTML;
+ var aa = document.getElementById(first).style.background;
+ var bb = document.getElementById(second).style.background;
+ var cc = document.getElementById(third).style.background;
+ var dd = document.getElementById(fourth).style.background;
+ var ee = document.getElementById(fifth).style.background;
+  document.getElementById(first).style.background = "red"; 
+ document.getElementById(second).style.background = "red";
+ document.getElementById(third).style.background = "red"; 
+ document.getElementById(fourth).style.background = "red"; 
+ document.getElementById(fifth).style.background = "red"; 
+ if(a == 5) {
+restart();
+}
+else if (b == 5) {
+restart();
+}
+else if (c == 5) {restart();
+}
+else if (d == 5) {restart();
+}
+else if (e == 5) {restart();
+}
+setTimeout(sixth , 100);
+counter--;
+}
+
+var counter = 0;
+
+
+//CLEARING THE RED LAZER CODE
+function clear(un , deux , trois , quatre , cinq)
+{document.getElementById(un).style.background = "white"; 
+document.getElementById(deux).style.background = "white"; 
+document.getElementById(trois).style.background = "white"; 
+document.getElementById(quatre).style.background = "white"; 
+document.getElementById(cinq).style.background = "white"; }
+
+
+//WARNING YELLOW LAZER CODE
+function beam(one , two , three , four , five , six)
+{
+if (counter < 3) {document.getElementById(one).style.background = "yellow"; 
+document.getElementById(two).style.background = "yellow"; 
+document.getElementById(four).style.background = "yellow"; 
+document.getElementById(three).style.background = "yellow"; 
+document.getElementById(five).style.background = "yellow";
+setTimeout(six , 1200)
+counter++;}
+}
+
+
+
+//RANDOMIZING BLASTING TIME CODE
+function btime() {
+    return Math.floor((Math.random() * 11000) + 4000);
+    }
+
+    
+    //TIMER CODE
+    var tieme = 0;
+setInterval(timer , 1000)
+function timer() {tieme++;
+document.getElementById("tiem").innerHTML = tieme;}
+
+
+
+function restart() {
+    document.getElementById("dive").innerHTML = "GAMEOVER " + "time:" + " " + tieme;
+    var cmp = localStorage.getItem("highsc");
+    var compare = parseInt(cmp);
+    if (compare < tieme) {
+    localStorage.setItem("highsc" , tieme);
+    document.getElementById("high").innerHTML = localStorage.getItem("highsc")
+    }
+
+}
+
+
+
+setInterval(fix , 2000);
+    function fix() {if (counter > 2 && counter < -1) {counter--;}}
+    
+function bestart() {
+    window.location.reload(true);
+}
+    
+//DIFFERENT BLASTING LOCATIONS CODE
+setInterval(function() {beam("a1" , "a2" , "a3" , "a4" , "a5", blast1)} , btime());
+function blast1() {blast("a1" , "a2" , "a3" , "a4" , "a5" , clear1)}
+function clear1() {clear("a1" , "a2" , "a3" , "a4" , "a5")}
+setInterval(function() {beam("a2" , "b2" , "c2" , "d2" , "e2", blast2)} , btime());
+function blast2() {blast("a2" , "b2" , "c2" , "d2" , "e2" , clear2)}
+function clear2() {clear("a2" , "b2" , "c2" , "d2" , "e2")}
+setInterval(function() {beam("d1" , "d2" , "d3" , "d5" , "d4", blast3)} , btime());
+function blast3() {blast("d1" , "d2" , "d3" , "d5" , "d4", clear3)}
+function clear3() {clear("d1" , "d2" , "d3" , "d5" , "d4")}
+setInterval(function() {beam("a4" , "b4" , "c4" , "e4" , "d4", blast4)} , btime());
+function blast4() {blast("a4" , "b4" , "c4" , "e4" , "d4", clear4)}
+function clear4() {clear("a4" , "b4" , "c4" , "e4" , "d4", clear4)}
+setInterval(function() {beam("a3" , "b3" , "c3" , "d3" , "e3", blast5)} , btime());
+function blast5() {blast("a3" , "b3" , "c3" , "d3" , "e3", clear5)}
+function clear5() {clear("a3" , "b3" , "c3" , "d3" , "e3")}
+setInterval(function() {beam("e1" , "e2" , "e3" , "e4" , "e5", blast6)} , btime());
+function blast6() {blast("e1" , "e2" , "e3" , "e4" , "e5" , clear6)}
+function clear6() {clear("e1" , "e2" , "e3" , "e4" , "e5")}
+setInterval(function() {beam("c1" , "c2" , "c3" , "c4" , "c5", blast7)} , btime());
+function blast7() {blast("c1" , "c2" , "c3" , "c4" , "c5" , clear7)}
+function clear7() {clear("c1" , "c2" , "c3" , "c4" , "c5")}
+setInterval(function() {beam("b1" , "b2" , "b3" , "b4" , "b5", blast8)} , btime());
+function blast8() {blast("b1" , "b2" , "b3" , "b4" , "b5", clear8)}
+function clear8() {clear("b1" , "b2" , "b3" , "b4" , "b5")}
+setInterval(function() {beam("b1" , "a1" , "c1" , "d1" , "e1", blast9)} , btime());
+function blast9() {blast("b1" , "a1" , "c1" , "d1" , "e1", clear9)}
+function clear9() {clear("b1" , "a1" , "c1" , "d1" , "e1")}
+setInterval(function() {beam("a5" , "b5" , "c5" , "d5" , "e5" , blast10)} , btime());
+function blast10() {blast("a5" , "b5" , "c5" , "d5" , "e5", clear10)}
+function clear10() {clear("a5" , "b5" , "c5" , "d5" , "e5")}
+window.addEventListener("load" , addt)
+
+function addt() {
+    document.getElementById("high").innerHTML = localStorage.getItem("highsc")
+}
+</script>
+
+</body>
+</html>
