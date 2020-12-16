@@ -1,0 +1,781 @@
+<html>
+<head>
+<style>
+#body {
+background-color: rgb(150 , 150 , 0);
+}
+#last {
+margin: auto;
+width: 400px;
+}
+.circle {
+background-color: black;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+margin: auto;
+}
+.queen {
+width: 0px;
+height: 0px;
+margin: auto;
+border-top: 25px solid transparent;
+border-left: 25px solid  black;
+border-right: 25px solid  black;
+border-bottom: 25px solid  black;
+}
+.empty {
+background-color: transparent;
+}
+.horse {
+background-color: black;
+height: 20px;
+width: 50px;
+
+}
+.horse2 {
+background-color: black;
+width: 30px;
+height: 50px;
+position: relative;
+left: 15px;
+}
+.king {
+background-color: black;
+width: 40px;
+height: 15px;
+position: relative;
+top: 10px;
+right: 12.5px;
+}
+
+.king2 {
+background-color: black;
+width: 15px;
+height: 50px;
+margin: auto;
+
+}
+
+.triangle {
+width: 0px;
+height: 0px;
+margin: auto;
+border-left: 30px solid transparent;
+border-right: 30px solid transparent;
+border-bottom: 50px solid black;
+
+}
+.rook {
+
+width: 0px;
+height: 0px;
+margin: auto;
+border-top: 25px solid black;
+border-bottom: 25px solid black;
+border-left: 25px solid transparent;
+border-right: 25px solid transparent;
+}
+.rook2 {
+width: 20px;
+height: 20px;
+background: black;
+margin:-10px;
+}
+
+.bircle {
+background-color: white;
+width: 50px;
+height: 50px;
+border-radius: 50%;
+margin: auto;
+}
+
+.bueen {
+width: 0px;
+height: 0px;
+margin: auto;
+border-top: 25px solid transparent;
+border-left: 25px solid  white;
+border-right: 25px solid  white;
+border-bottom: 25px solid  white;
+}
+
+.borse {
+background-color: white;
+height: 20px;
+width: 50px;
+
+}
+.borse2 {
+background-color: white;
+width: 30px;
+height: 50px;
+position: relative;
+left: 15px;
+}
+.bing {
+background-color: white;
+width: 40px;
+height: 15px;
+position: relative;
+top: 10px;
+right: 12.5px;
+}
+
+.bing2 {
+background-color: white;
+width: 15px;
+height: 50px;
+margin: auto;
+
+}
+
+.briangle {
+width: 0px;
+height: 0px;
+margin: auto;
+border-left: 30px solid transparent;
+border-right: 30px solid transparent;
+border-bottom: 50px solid white;
+
+}
+.book {
+width: 0px;
+height: 0px;
+margin: auto;
+border-top: 25px solid white;
+border-bottom: 25px solid white;
+border-left: 25px solid transparent;
+border-right: 25px solid transparent;
+}
+.book2 {
+width: 20px;
+height: 20px;
+background: white;
+margin:-10px;
+}
+
+.chess {
+width: 80px;
+height: 80px;
+
+}
+#board {
+margin: auto;
+border: 5px solid gray;
+}
+.black {
+background-color: rgb(160 , 160 , 160);
+}
+.white {
+background-color: rgb(40 , 40 , 40);
+}
+
+</style>
+</head>
+<body id="body">
+<table id="board" border="1">
+<tr>
+<td onclick="select(this)" class="black chess" id="a1">
+<div class="blac rook bruh"><div class="blac rook2"></div></div>
+</td>
+<td onclick="select(this)" class="white chess" id="a2">
+<div class="blac horse2"><div class="blac horse"></div></div>
+</td>
+<td onclick="select(this)" class="black chess" id="a3">
+<div class="blac triangle"></div>
+</td>
+<td onclick="select(this)" class="white chess" id="a4">
+<div class="blac queen"></div>
+</td>
+<td onclick="select(this)" class="black chess" id="a5">
+<div class="blac king2 rruh"><div class="blac king"></div></div>
+</td>
+<td onclick="select(this)" class="white chess" id="a6">
+<div class="blac triangle"></div>
+</td>
+<td onclick="select(this)" class="black chess" id="a7">
+<div class="blac horse2"><div class="blac horse"></div></div>
+</td>
+<td onclick="select(this)" class="white chess" id="a8">
+<div class="blac rook bruh"><div class="blac rook2"></div></div>
+</td>
+</tr>
+<tr>
+<td onclick="select(this)" class="white chess" id="b1">
+<div class="blac circle"></div>
+</td>
+<td onclick="select(this)" class="black chess" id="b2">
+<div class="blac circle"></div>
+</td>
+<td onclick="select(this)" class="white chess" id="b3">
+<div class="blac circle"></div>
+</td>
+<td class="black chess" onclick="select(this)" id="b4">
+<div class="blac circle"></div>
+</td>
+<td onclick="select(this)" class="white chess" id="b5">
+<div class="blac circle"></div>
+</td>
+<td onclick="select(this)" class="black chess" id="b6">
+<div class="blac circle"></div>
+</td>
+<td onclick="select(this)" class="white chess" id="b7">
+<div class="blac circle"></div>
+</td>
+<td onclick="select(this)" class="black chess" id="b8">
+<div class="blac circle"></div>
+</td>
+</tr>
+<tr>
+<td onclick="select(this)" class="black chess" id="c1">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="white chess" id="c2">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="black chess" id="c3">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="white chess" id="c4">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="black chess" id="c5">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="white chess" id="c6">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="black chess" id="c7">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="white chess" id="c8">
+<div class="empty">
+</td>
+</tr>
+<tr>
+<td onclick="select(this)" class="white chess" id="d1">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="black chess" id="d2">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="white chess" id="d3">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="black chess" id="d4">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="white chess" id="d5">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="black chess" id="d6">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="white chess" id="d7">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="black chess" id="d8">
+<div class="empty">
+</td>
+</tr>
+
+<tr>
+<td onclick="select(this)" class="black chess" id="e1">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="white chess" id="e2">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="black chess" id="e3">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="white chess" id="e4">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="black chess" id="e5">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="white chess" id="e6">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="black chess" id="e7">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="white chess" id="e8">
+<div class="empty">
+</td>
+</tr>
+<tr>
+<td onclick="select(this)" class="white chess" id="f1">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="black chess" id="f2">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="white chess" id="f3">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="black chess" id="f4">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="white chess" id="f5">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="black chess" id="f6">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="white chess" id="f7">
+<div class="empty">
+</td>
+<td onclick="select(this)" class="black chess" id="f8">
+<div class="empty">
+</td>
+</tr>
+<tr>
+<td onclick="select(this)" class="black chess" id="g1">
+<div class="whit bircle"></div>
+</td>
+<td onclick="select(this)" class="white chess" id="g2">
+<div class="whit bircle"></div>
+</td>
+<td onclick="select(this)" class="black chess" id="g3">
+<div class="whit bircle"></div>
+</td>
+<td onclick="select(this)" class="white chess" id="g4">
+<div class="whit bircle"></div>
+</td>
+<td onclick="select(this)" class="black chess" id="g5">
+<div class="whit bircle"></div>
+</td>
+<td onclick="select(this)" class="white chess" id="g6">
+<div class="whit bircle"></div>
+</td>
+<td onclick="select(this)" class="black chess" id="g7">
+<div class="whit bircle"></div>
+</td>
+<td onclick="select(this)" class="white chess" id="g8">
+<div class="whit bircle"></div>
+</td>
+</tr>
+<tr>
+<td onclick="select(this)" class="white chess" id="h1">
+<div class="whit book bruh"><div class="whit book2 bruh"></div></div>
+</td>
+<td onclick="select(this)" class="black chess" id="h2">
+<div class="whit borse2"><div class="whit borse"></div></div>
+</td>
+<td onclick="select(this)" class="white chess" id="h3">
+<div class="whit briangle"></div>
+</td>
+<td onclick="select(this)" class="black chess" id="h4">
+<div class="whit bueen"></div>
+</td>
+<td onclick="select(this)" class="white chess" id="h5">
+<div class="whit bing2 rruh"><div class="whit bing"></div></div>
+</td>
+<td onclick="select(this)" class="black chess" id="h6">
+<div class="whit briangle"></div>
+</td>
+<td onclick="select(this)" class="white chess" id="h7">
+<div class="whit borse2"><div class="whit borse"></div></div>
+</td>
+<td onclick="select(this)" class="black chess" id="h8">
+<div class="whit book bruh"><div class="whit book2 bruh"></div></div>
+</td>
+</tr>
+<table id="last">
+<tr>
+<td id="replace1"></td>
+<td id="replace2"></td>
+<td id="replace3"></td>
+<td id="replace4"></td>
+</tr>
+</table>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+
+var rows = ["x" , "a" , "b" , "c" , "d" , "e" , "f" , "g" , "h" , "z"]
+var board = document.getElementById("board");
+var turn = 1;
+
+
+
+var d = 0;
+var cases = [];
+window.addEventListener("load" , function () {
+var clases = document.getElementsByClassName("chess");
+while (d < 75) {
+cases.push(clases[d])
+d++;
+}})
+
+
+
+
+function horse(inl , lettr , numbr , color) {
+var selections = [];
+selections.push(lettr + 2 + "" + (numbr + 1))
+selections.push(lettr + 2 + "" + (numbr - 1))
+selections.push(lettr - 2 + "" + (numbr + 1))
+selections.push(lettr - 2 + "" + (numbr - 1))
+selections.push(lettr + 1 + "" + (numbr - 2))
+selections.push(lettr + 1 + "" + (numbr + 2))
+selections.push(lettr - 1 + "" + (numbr - 2))
+selections.push(lettr - 1 + "" + (numbr + 2))
+selections.forEach(function (item) {
+if (item[0] > 0 && item[0] < 9 && item[1] > 0 && item[1] < 9 && document.getElementById(rows[item[0]] + item[1]).children[0].className.split(" ")[0] != color){
+document.getElementById(rows[item[0]] + item[1]).style.border = "5px solid green"
+}})
+board.addEventListener("click" , move.bind(board , inl) , {once: true , capture: true});
+}
+
+
+
+function pawn(inl , lettr , numbr , color , side) {
+var selections = [];
+selections.push(document.getElementById(rows[lettr + side] + "" + numbr))
+selections.push(document.getElementById(rows[lettr + side + side] + "" + numbr))
+selections.push(document.getElementById(rows[lettr + side] + "" + (numbr - 1)))
+selections.push(document.getElementById(rows[lettr + side] + "" + (numbr + 1)))
+selections.forEach(function(item , index){
+if(item != null){
+if (index == 0 && item.children[0].className == "empty") {item.style.border = "5px solid green"}
+if (index == 1 && inl.id[0] == "g" && item.children[0].className == "empty") {item.style.border = "5px solid green"}
+if (index == 1 && inl.id[0] == "b" && item.children[0].className == "empty") {item.style.border = "5px solid green"}
+if (index == 2 && item.children[0].className != "empty" && item.children[0].className.split(" ")[0] != color) {item.style.border = "5px solid green"}
+if (index == 3 && item.children[0].className != "empty" && item.children[0].className.split(" ")[0] != color) {item.style.border = "5px solid green"}
+}
+})
+var location = (() => {if (side == -1) {return "a"}
+else if (side == 1) {return "h"}
+})()
+board.addEventListener("click" , move.bind(board , inl , true , location) , {once: true , capture: true});
+}
+
+
+
+
+
+function rook (inl , lettr , numbr , color) {
+var check = 1;
+var castle = [];
+var move4 = numbr;
+while (move4 < 8 && check == 1) {
+move4++;
+var selection = document.getElementById(inl.id[0] + move4);
+if (selection.children[0].className.split(" ")[2] == "rruh" && inl.children[0].className.split(" ")[2] == "bruh") {document.getElementById(inl.id[0] + (move4 - 1)).style.border = "5px solid yellow"
+castle.push(document.getElementById(inl.id[0] + (move4 - 2)))}
+else if (selection.children[0].className.split(" ")[0] == color) {
+check++;
+}
+else{
+selection.style.border = "5px solid green";
+if (selection.children[0].className != "empty"){check++;}
+}
+}
+
+
+var check = 1;
+var move3 = numbr;
+while (move3 > 1 && check == 1) {
+move3--;
+var selection = document.getElementById(inl.id[0] + move3);
+if (selection.children[0].className.split(" ")[2] == "rruh" && inl.children[0].className.split(" ")[2] == "bruh") {document.getElementById(inl.id[0] + (move3 + 1)).style.border = "5px solid yellow"
+castle.push(document.getElementById(inl.id[0] + (move3 + 2)))
+castle.push(document.getElementsByClassName(color + /."ing/)[0])}
+else if (selection.children[0].className.split(" ")[0] == color) {
+check++;
+}
+else{
+selection.style.border = "5px solid green";
+if (selection.children[0].className != "empty"){check++;}
+}
+}
+
+
+var check = 1;
+var move2 = lettr;
+while (move2 < 8 && check == 1) {
+move2++;
+var selection = document.getElementById(rows[move2] + inl.id[1]);
+if (selection.children[0].className.split(" ")[0] == color) {
+check++;
+}
+else{
+selection.style.border = "5px solid green" 
+if (selection.children[0].className != "empty"){check++;}
+}
+}
+
+
+var check = 1;
+var move1 = lettr;
+while (move1 > 1 && check == 1) {
+move1--;
+var selection = document.getElementById(rows[move1] + inl.id[1]);
+if (selection.children[0].className.split(" ")[0] == color) {
+check++;
+}
+else{
+selection.style.border = "5px solid green"
+if (selection.children[0].className != "empty"){check++;}
+}
+}
+if (inl.children[0].className.split(" ")[1] != "bueen") {
+board.addEventListener("click" , move.bind(board , inl , castle[0]) , {once: true , capture: true});
+}
+}
+
+
+
+function king(inl , lettr , numbr , color) {
+selected = [];
+selected.push(rows[lettr + 1] + ""  + numbr)
+selected.push(rows[lettr - 1] + ""  + numbr)
+selected.push(rows[lettr] + ""  + (numbr + 1))
+selected.push(rows[lettr] + ""  + (numbr - 1))
+selected.push(rows[lettr + 1] + "" + (numbr + 1))
+selected.push(rows[lettr - 1] + "" + (numbr + 1))
+selected.push(rows[lettr + 1] + "" + (numbr - 1))
+selected.push(rows[lettr - 1] + "" + (numbr - 1))
+selected.forEach(function (item) {
+if (item[0] != "x" && item[0] != "z" && parseInt(item[1]) > 0 && parseInt(item[1]) < 9 && document.getElementById(item).children[0].className.split(" ")[0] != color) {  
+document.getElementById(item).style.border = "5px solid green"}
+})
+board.addEventListener("click" , move.bind(board , inl) , {once: true , capture: true});
+}
+
+
+
+function bishop (inl , lettr , numbr , color) {
+var check = 1;
+var move4 = numbr;
+var move42 = lettr;
+while (move4 < 8 && move42 < 8 && check == 1) {
+move4++;
+move42++;
+var selection = document.getElementById(rows[move42] + move4);
+if (selection.children[0].className.split(" ")[0] == color) {
+check++;
+}
+else{
+selection.style.border = "5px solid green";
+if (selection.children[0].className != "empty"){check++;}
+}
+}
+
+
+var check = 1;
+var move3 = numbr;
+var move32 = lettr;
+while (move3 > 1 && move32 > 1 && check == 1) {
+move3--;
+move32--;
+var selection = document.getElementById(rows[move32] + move3);
+if (selection.children[0].className.split(" ")[0] == color) {
+check++;
+}
+else{
+selection.style.border = "5px solid green";
+if (selection.children[0].className != "empty"){check++;}
+}
+}
+
+
+var check = 1;
+var move2 = lettr;
+var move22 = numbr;
+while (move2 < 8 && move22 > 1 && check == 1) {
+move2++;
+move22--;
+var selection = document.getElementById(rows[move2] + move22);
+if (selection.children[0].className.split(" ")[0] == color) {
+check++;
+}
+else{
+selection.style.border = "5px solid green"
+if (selection.children[0].className != "empty"){check++;}
+}
+}
+
+
+var check = 1;
+var move1 = lettr;
+var move12 = numbr;
+while (move1 > 1 && move12 < 8 && check == 1) {
+move1--;
+move12++;
+var selection = document.getElementById(rows[move1] + move12);
+if (selection.children[0].className.split(" ")[0] == color) {
+check++;
+}
+else{
+selection.style.border = "5px solid green"
+if (selection.children[0].className != "empty"){check++;}
+}
+}
+if (inl.children[0].className.split(" ")[1] != "queen") {
+board.addEventListener("click" , move.bind(board , inl) , {once: true , capture: true})
+}
+}
+
+
+
+
+
+
+
+function move(inl , castle , location) {
+var selection = [];
+if (event.target.tagName == "DIV") {selection.push(event.target.parentNode)}
+else if (event.target.className.split(" ")[1] == "chess") {selection.push(event.target)}
+if (selection[0].id == (location + selection[0].id[1])) {queen(selection[0])}
+if (selection[0].style.border == "5px solid green") {
+selection[0].innerHTML = inl.innerHTML;
+selection[0].children[0].className = "pseudo" + inl.children[0].className.split(" ")[1];
+inl.innerHTML = "<div class='empty'>"
+if (turn > 0) {turn--
+board.style.transform = "rotate(180deg)";
+cases.forEach(function (item) {item.style.transform = "rotate(180deg)"})}
+else if (turn < 1) {turn++
+board.style.transform = "rotate(0deg)";
+cases.forEach(function (item) {item.style.transform = "rotate(0deg)"})}
+}
+else if (selection[0].style.border == "5px solid yellow") {selection.innerHTML = inl.innerHTML
+selection[0].children[0].className = "pseudo" + inl.children[0].className.split(" ")[1];
+inl.innerHTML = "<div class='empty'>"
+document.getElementById(inl.id[0] + "" + (4/7*inl.id[1] + 17/7)).innerHTML = document.getElementById(inl.id[0] + 5).innerHTML
+document.getElementById(inl.id[0] + 5).innerHTML = '<div class="empty">'
+if (turn > 0) {turn--
+board.style.transform = "rotate(180deg)";
+cases.forEach(function (item) {item.style.transform = "rotate(180deg)"})}
+else if (turn < 1) {turn++
+board.style.transform = "rotate(0deg)";
+cases.forEach(function (item) {item.style.transform = "rotate(0deg)"})}
+}
+}
+
+
+function queen (djef) {
+var color = djef.children[0].className.split(" ")[0]
+if (color == "blac") {
+document.getElementById("replace1").innerHTML = '<div class="whit briangle">'
+document.getElementById("replace2").innerHTML = '<div class="whit bueen">'
+document.getElementById("replace3").innerHTML = '<div class="whit borse2"><div class="whit borse">'
+document.getElementById("replace4").innerHTML = '<div class="whit book"><div class="whit book2"></div></div>'
+}
+if (color == "whit") {
+document.getElementById("replace1").innerHTML = '<div class="blac triangle">'
+document.getElementById("replace2").innerHTML = '<div class="blac queen">'
+document.getElementById("replace3").innerHTML = '<div class="blac horse2"><div class="blac horse">'
+document.getElementById("replace4").innerHTML = '<div class="blac rook"><div class="blac rook2"></div></div>'
+}
+document.getElementById("last").addEventListener("click" , function() {djef.innerHTML = event.target.parentNode.innerHTML
+document.getElementById("replace1").innerHTML = " "
+document.getElementById("replace2").innerHTML = " "
+document.getElementById("replace3").innerHTML = " "
+document.getElementById("replace4").innerHTML = " "} , {once: true})
+}
+
+
+
+
+function select(e) {
+
+
+var initial = e;
+var g = 0;
+while (g < 64) {
+cases[g].style.border = "0px";
+cases[g].style.width = "80px";
+cases[g].style.height = "80px";
+g++;
+
+}
+
+
+initial.style.border = "5px solid red";
+initial.style.width = "70px";
+initial.style.height = "70px";
+if (turn == 0) {
+if (initial.children[0].className.split(" ")[1] == "rook") {
+rook(initial , rows.findIndex(item => item == e.id[0]) , parseInt(e.id[1]) , "blac");
+}
+if (initial.children[0].className == "blac circle") {
+pawn(initial , rows.findIndex(item => item == e.id[0]) , parseInt(e.id[1]) , "blac" , 1);
+}
+else if (initial.children[0].className == "blac triangle") {
+bishop(initial , rows.findIndex(item => item == e.id[0]) , parseInt(e.id[1]) , "blac");
+}
+else if (initial.children[0].className == "blac queen") {
+bishop(initial , rows.findIndex(item => item == e.id[0]) , parseInt(e.id[1]) , "blac");
+rook(initial , rows.findIndex(item => item == e.id[0]) , parseInt(e.id[1]) , "blac");
+}
+else if (initial.children[0].className.split(" ")[1] == "king2") {
+king(initial , rows.findIndex(item => item == e.id[0]) , parseInt(e.id[1]) , "blac");
+}
+else if (initial.children[0].className == "blac horse2") {
+horse(initial , rows.findIndex(item => item == e.id[0]) , parseInt(e.id[1]) , "blac");
+}}
+else if (turn == 1) {
+if (initial.children[0].className == "whit briangle") {
+bishop(initial , rows.findIndex(item => item == e.id[0]) , parseInt(e.id[1]) , "whit");
+}
+else if (initial.children[0].className.split(" ")[1] == "book") {
+rook(initial , rows.findIndex(item => item == e.id[0]) , parseInt(e.id[1]) , "whit");
+}
+if (initial.children[0].className == "whit bircle") {
+pawn(initial , rows.findIndex(item => item == e.id[0]) , parseInt(e.id[1]) , "whit" , -1);
+}
+else if (initial.children[0].className == "whit bueen") {
+bishop(initial , rows.findIndex(item => item == e.id[0]) , parseInt(e.id[1]) , "whit");
+rook(initial , rows.findIndex(item => item == e.id[0]) , parseInt(e.id[1]) , "whit");
+}
+else if (initial.children[0].className.split(" ")[1] == "bing2") {
+king(initial , rows.findIndex(item => item == e.id[0]) , parseInt(e.id[1]) , "whit");
+}
+else if (initial.children[0].className == "whit borse2") {
+horse(initial , rows.findIndex(item => item == e.id[0]) , parseInt(e.id[1]) , "whit");
+}}
+if (initial.children[0].className == "pseudorook") {
+initial.children[0].className = "blac rook"} 
+if (initial.children[0].className == "pseudotriangle") {
+initial.children[0].className = "blac triangle"}
+if (initial.children[0].className == "pseudoqueen") {
+initial.children[0].className = "blac queen"}
+if (initial.children[0].className == "pseudocircle") {
+initial.children[0].className = "blac circle"}
+if (initial.children[0].className == "pseudohorse2") {
+initial.children[0].className = "blac horse2"}
+if (initial.children[0].className == "pseudoking2") {
+initial.children[0].className = "blac king2"}
+if (initial.children[0].className == "pseudobook") {
+initial.children[0].className = "whit book"} 
+if (initial.children[0].className == "pseudobriangle") {
+initial.children[0].className = "whit briangle"}
+if (initial.children[0].className == "pseudobueen") {
+initial.children[0].className = "whit bueen"}
+if (initial.children[0].className == "pseudoborse2") {
+initial.children[0].className = "whit borse2"}
+if (initial.children[0].className == "pseudobircle") {
+initial.children[0].className = "whit bircle"}
+if (initial.children[0].className == "pseudobing2") {
+initial.children[0].className = "whit bing2"}
+var checks = cases.find(item => item.innerHTML == '<div class="whit bing2"><div class="whit bing"></div></div>');
+alert(checks);
+}
+
+
+
+window.addEventListener("keydown" , function (e) {
+if (e.key == "Enter") {board.innerHTML = localStorage.getItem("board")}
+})
+
+
+
+
+</script>
+</body>
+</html>
