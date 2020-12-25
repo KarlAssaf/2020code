@@ -1,7 +1,7 @@
 var puppeteer = require("puppeteer")
 var enar = "https://translate.google.com/?sl=en&tl=ar&op=translate"
 var enfi = "https://translate.google.com/?sl=en&tl=tl&op=translate"
-var enin = "https://translate.google.com/?sl=en&tl=hi&op=translate"
+var enhi = "https://translate.google.com/?sl=en&tl=hi&op=translate"
 var enru = "https://translate.google.com/?sl=en&tl=ru&op=translate"
 var entu = "https://translate.google.com/?sl=en&tl=tr&op=translate"
 var ench = "https://translate.google.com/?sl=en&tl=zh-CN&op=translate"
@@ -9,7 +9,7 @@ var enge = "https://translate.google.com/?sl=en&tl=de&op=translate"
 var enin = "https://translate.google.com/?sl=en&tl=id&op=translate"
 var enja = "https://translate.google.com/?sl=en&tl=el&op=translate"
 var enhe = "https://translate.google.com/?sl=en&tl=iw&op=translate"
-var lang = [entu , enfi , enin , enru , enar , ench , enge , enin , enja , enhe]
+var lang = [entu , enfi , enhi , enru , enar , ench , enge , enin , enja , enhe]
 var results = []
 
 
@@ -44,8 +44,9 @@ await page.waitForSelector(".mye4qd" , {visible: true})
 var more = await page.$(".mye4qd")
 await more.click()
 var imgs = await page.$$("div > a:nth-child(1) > div:nth-child(1) > img:nth-child(1)")
+await console.log(imgs.length)
 var numb = 0
-while(numb < imgs.length + 1) {imgs[numb].screenshot({path: "/home/carl/nodelearn/imgs/image" + (inc + numb) + ".png"})
+while(numb < imgs.length) {imgs[numb].screenshot({path: "/home/carl/nodelearn/imgs/soura" + (inc + numb) + ".png"})
 numb++
 await page.waitFor(3000)
 }
@@ -54,4 +55,4 @@ numbz++
 }
 })
 }
-scrape("car on road")
+scrape("bycicle")
