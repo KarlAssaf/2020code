@@ -1,0 +1,423 @@
+<html>
+<head>
+<style>
+#sky {
+width: 700%;
+height: 75%;
+background: cyan;
+}
+#ground {
+width: 700%;
+height: 35%;
+background: green;
+position: relative;
+}
+#mario {
+position: absolute;
+background: red;
+border-radius: 20%
+}
+.p1 {
+position: absolute;
+background: yellow;
+}
+.p2 {
+position: absolute;
+background: yellow;
+}
+.plat {
+position: absolute;
+background: black;
+color: white;
+}
+.opp {
+position: absolute;
+background: pink;
+}
+.wall {
+position: absolute;
+background: gray;
+}
+.out {
+width: 0px
+height: 0px;
+}
+.check {
+position: absolute;
+background: white;
+}
+</style>
+</head>
+<body>
+<div id="sky">
+<br><br><br>
+W: JUMP<br>
+S: DUCK<br>
+A: MOVE LEFT<br>
+D: MOVE RIGHT<br>
+JUMP + HOLD(W, A, D) + SPACEBAR: TELEPORT(top, left, right)<br></div>
+<div id="ground">
+<div id="mario"></div>
+<div class="p1" id="pipe1">W+D</div>
+<div class="p1" id="pipe2">W+D+D+D</div>
+<div class="p1" id="pipe4">W+HOLD(D)+SPACE</div>
+<div class="p1" id="pipe3">HOLD(S) + HOLD(D)</div>
+<div class="plat" id="plat1">HOLD(W) + SPACE</div>
+<div class="p1" id="pipe5"></div>
+<div class="p1" id="pipe6"></div>
+<div class="plat" id="plat2"></div>
+<div class="opp" id="opp1"></div>
+<div class="opp" id="opp2"></div>
+<div class="opp" id="opp3"></div>
+<div class="p1" id="pipe8"></div>
+<div class="p1" id="pipe10"></div>
+<div class="p1" id="pipe11"></div>
+<div class="wall" id="wall1"></div>
+<div class="p1" id="pipe9">J TO SHOOT</div>
+<div class="plat" id="plat3"></div>
+<div class="plat" id="plat4"></div>
+<div class="plat" id="plat5"></div>
+<div class="plat" id="plat6"></div>
+<div class="plat" id="plat7"></div>
+<div class="p1" id="pipe12"></div>
+<div class="p1" id="pipe13"></div>
+<div class="p1" id="pipe14"></div>
+<div class="check" id="check2"></div>
+</div>
+<script>
+var rate = 0.2
+var hold = "no"
+var tpa = "ok"
+var tpd = "ok"
+var tpw = "ok"
+var ground = 100
+var form = "no"
+var jumping = "no"
+
+fall = [0, 0]
+
+mario = document.getElementById("mario")
+
+var levl = "p1"
+
+mario.style.bottom = "100%"
+mario.style.left = "22%"
+mario.style.height = "10%"
+mario.style.width = "0.3%"
+
+pipe1.style.left = "1.5%"
+pipe1.style.height = "35%"
+pipe1.style.width = "0.1%"
+pipe1.style.bottom = "100%"
+
+pipe2.style.left = "4%"
+pipe2.style.height = "25%"
+pipe2.style.width = "0.6%"
+pipe2.style.bottom = "100%"
+
+pipe3.style.left = "10%"
+pipe3.style.height = "100%"
+pipe3.style.width = "2.5%"
+pipe3.style.bottom = "105.1%"
+
+pipe4.style.left = "6%"
+pipe4.style.height = "100%"
+pipe4.style.width = "1%"
+pipe4.style.bottom = "100%"
+
+plat1.style.left = "13%"
+plat1.style.height = "8%"
+plat1.style.width = "2%"
+plat1.style.bottom = "160%"
+
+pipe6.style.left = "15%"
+pipe6.style.height = "145%"
+pipe6.style.width = "1%"
+pipe6.style.bottom = "100%"
+
+pipe5.style.left = "15%"
+pipe5.style.height = "65%"
+pipe5.style.width = "2%"
+pipe5.style.bottom = "100%"
+
+plat2.style.left = "16%"
+plat2.style.height = "8%"
+plat2.style.width = "1%"
+plat2.style.bottom = "160%"
+
+opp1.style.left = "20%"
+opp1.style.height = "10%"
+opp1.style.width = "0.3%"
+opp1.style.bottom = "100%"
+
+pipe9.style.left = "24%"
+pipe9.style.height = "55%"
+pipe9.style.width = "1%"
+pipe9.style.bottom = "115%"
+
+pipe8.style.left = "23%"
+pipe8.style.height = "120%"
+pipe8.style.width = "1%"
+pipe8.style.bottom = "105.1%"
+
+opp2.style.left = "24.2%"
+opp2.style.height = "10%"
+opp2.style.width = "0.3%"
+opp2.style.bottom = "100%"
+
+
+opp3.style.left = "31%"
+opp3.style.height = "10%"
+opp3.style.width = "0.3%"
+opp3.style.bottom = "177%"
+
+plat3.style.left = "24%"
+plat3.style.height = "8%"
+plat3.style.width = "1.85%"
+plat3.style.bottom = "170%"
+
+plat5.style.left = "22%"
+plat5.style.height = "8%"
+plat5.style.width = "2%"
+plat5.style.bottom = "220%"
+
+plat6.style.left = "21%"
+plat6.style.height = "8%"
+plat6.style.width = "6%"
+plat6.style.bottom = "270%"
+
+plat7.style.left = "27%"
+plat7.style.height = "8%"
+plat7.style.width = "4%"
+plat7.style.bottom = "290%"
+
+
+pipe13.style.left = "23%"
+pipe13.style.height = "4%"
+pipe13.style.width = "1%"
+pipe13.style.bottom = "446%"
+
+pipe10.style.left = "25%"
+pipe10.style.height = "50%"
+pipe10.style.width = "3%"
+pipe10.style.bottom = "120%"
+
+plat4.style.left = "28%"
+plat4.style.height = "8%"
+plat4.style.width = "0.5%"
+plat4.style.bottom = "170%"
+
+pipe11.style.left = "28%"
+pipe11.style.height = "5%"
+pipe11.style.width = "0.5%"
+pipe11.style.bottom = "130%"
+
+pipe12.style.left = "28.5%"
+pipe12.style.height = "190%"
+pipe12.style.width = "2.2%"
+pipe12.style.bottom = "100%"
+
+pipe14.style.left = "33%"
+pipe14.style.height = "300%"
+pipe14.style.width = "2.2%"
+pipe14.style.bottom = "100%"
+
+check2.style.left = "32.7%"
+check2.style.height = "300%"
+check2.style.width = "0.3%"
+check2.style.bottom = "100%"
+
+Array.from(document.getElementsByClassName("opp")).forEach(function(item, ind){
+var b = setInterval(function(){
+bull = document.createElement("div")
+document.getElementById("ground").appendChild(bull)
+bull.className = levl
+bull.style.width = "0.15%"
+bull.style.height = "5%"
+bull.style.background = "rgb(80, 50, 50)"
+bull.style.left = item.style.left
+bull.style.bottom = item.style.bottom
+bullet(bull, 0)}, 2500)
+})
+
+function point() {
+Array.from(document.getElementsByClassName("check")).forEach(function(item){
+if (item.style.left == mario.style.left){
+levl = levl[0] + item.id[5]
+mario.style.left = (parseFloat(mario.style.left) + 2.6) + "%"
+alert(levl)
+}
+})
+}
+
+function bullet(b, i) {
+if (i < 25) {
+b.style.left = (parseFloat(b.style.left) - 0.2) + "%"
+setTimeout(bullet.bind(b, b, i + 1), 50)
+check("w")
+}
+else {
+b.outerHTML = " "
+}
+}
+
+function bullex(b, i) {
+if (i < 10) {
+b.style.left = (parseFloat(b.style.left) + 0.2) + "%"
+setTimeout(bullex.bind(b, b, i + 1), 50)
+Array.from(document.getElementsByClassName("opp")).forEach(function(item){
+if (parseFloat(b.style.left) + parseFloat(b.style.width) >= parseFloat(item.style.left)) {
+item.outerHTML = " "
+clearInterval(parseInt(item.id[3]) + 1)
+}
+})
+}
+else {
+b.outerHTML = " "
+}
+}
+
+
+
+
+function check(l) {
+Array.from(document.getElementsByClassName(levl)).forEach(function(item){
+if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height)){
+alert("gameover")
+window.location.reload()
+}
+})
+Array.from(document.getElementsByClassName("opp")).forEach(function(item){
+if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) + parseFloat(mario.style.height) >= parseFloat(item.style.bottom) && parseFloat(mario.style.bottom) < parseFloat(item.style.bottom) + parseFloat(item.style.height)){
+alert("gameover")
+window.location.reload()
+}
+if (parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width) && parseFloat(mario.style.bottom) == parseFloat(item.style.bottom) + parseFloat(item.style.height)) {
+clearInterval(parseInt(item.id[3]) + 1)
+item.outerHTML = " "
+}
+})
+if (form == "yes" && l != "w"){
+if (parseFloat(mario.style.left) + parseFloat(mario.style.width) >= fall[1] || parseFloat(mario.style.left) <= fall[0]){
+form = "no"
+jump(31)
+}
+}
+}
+
+function plat(){
+j = "ok"
+Array.from(document.getElementsByClassName("plat")).forEach(function(item){
+if (parseFloat(mario.style.bottom) == parseFloat(item.style.bottom) + parseFloat(item.style.height) && parseFloat(mario.style.left) + parseFloat(mario.style.width) > parseFloat(item.style.left) && parseFloat(mario.style.left) < parseFloat(item.style.left) + parseFloat(item.style.width)) {
+j = "nok"
+fall[0] = parseFloat(item.style.left) + parseFloat(item.style.width)
+fall[1] = parseFloat(item.style.left)
+form = "yes"
+}})
+if (parseFloat(mario.style.bottom) <= 100) {return "nok"}
+return j 
+}
+
+
+function jump(j){
+setTimeout(function(){
+jumping = "yes"
+if (j < 30) {
+mario.style.bottom = (parseFloat(document.getElementById("mario").style.bottom) + 2) + "%"
+jump(j + 1)
+}
+else if (plat() == "ok"){
+mario.style.bottom = (parseFloat(document.getElementById("mario").style.bottom) - 2) + "%"
+jump(31)
+}
+else {
+jumping = "no"
+tpa = "ok"
+tpd = "ok"
+tpw = "ok"
+}
+}
+, 10)
+check("w")
+}
+
+window.addEventListener("keydown", function(e){
+if (e.key == "w"){
+hold = "w"
+if (jumping == "no") {jump(0)}
+}
+if (e.key == "s"){
+mario.style.height = "5%"
+rate = 0.05
+}
+if (e.key == "a"){
+hold = "a"
+if (jumping == "no") {
+document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) - rate) + "%"
+}
+}
+if (e.key == "d"){
+hold = "d"
+if (jumping == "no") {
+document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) + rate) + "%"
+}
+}
+if (e.key == "c") {
+point()
+}
+if (e.key == "j") {
+bul = document.createElement("div")
+document.getElementById("ground").appendChild(bul)
+bul.className = "wall"
+bul.style.width = "0.15%"
+bul.style.height = "5%"
+bul.style.left = mario.style.left
+bul.style.bottom = mario.style.bottom
+bullex(bul, 0)
+}
+if (e.key == " " && hold != "no" && jumping == "yes") {
+if (hold == "a" && tpa == "ok"){
+document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) - rate*10) + "%"
+tpa = "not"
+}
+if (hold == "d" && tpd == "ok"){
+document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) + rate*10) + "%"
+tpd = "not"
+}
+if (hold == "w" && tpw == "ok"){
+document.getElementById("mario").style.bottom = (parseFloat(document.getElementById("mario").style.bottom) + rate*300) + "%"
+tpw = "not"
+}
+}
+check(e.key)
+mario.scrollIntoView({inline: "center", block: "center"})
+})
+
+
+
+
+window.addEventListener("keyup", function(e){
+if (e.key == "w"){
+hold = "no"
+}
+if (e.key == "s"){
+mario.style.height = "10%"
+rate = 0.2
+}
+if (e.key == "a"){
+if (jumping == "yes") {
+document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) - rate*2) + "%"
+}
+hold = "no"
+}
+if (e.key == "d"){
+if (jumping == "yes") {
+document.getElementById("mario").style.left = (parseFloat(document.getElementById("mario").style.left) + rate*2) + "%"
+}
+hold = "no"
+}
+check(e.key)
+})
+</script>
+</body>
+</html>

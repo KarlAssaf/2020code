@@ -1,0 +1,135 @@
+<html>
+<head>
+<style>
+body {
+background: cyan
+}
+td {
+width: 50px;
+height: 50px;
+border: 1px solid black;
+font-size: 20px;
+text-align: center;
+}
+</style>
+<head>
+<body>
+<div id="div">
+<input id="inp" type="number">
+<input id="inp2" type="number">
+</div>
+<script>
+var strasser = []
+var rows = document.getElementById("inp").value
+var cols = document.getElementById("inp2").value
+window.addEventListener("keyup", function(e){
+rows = document.getElementById("inp").value
+cols = document.getElementById("inp2").value
+if (e.key == "Enter" && rows > 3 && cols > 3) {
+i = 0
+table = document.createElement("TABLE")
+while (i < rows){
+tr = document.createElement("TR")
+j = 0
+while (j < cols){
+td = document.createElement("TD")
+td.style.background = "gray"
+td.addEventListener("click", check.bind(td, td, "no"))
+td.id = (i + 1) + "a" + (j + 1)
+tr.appendChild(td)
+j++
+}
+table.appendChild(tr)
+i++
+}
+bombs =  (rows*cols)/6
+document.getElementById("div").innerHTML = " "
+document.getElementById("div").appendChild(table)
+flags = document.createElement("div")
+document.getElementById("div").appendChild(flags)
+k = 0
+while (k < bombs) {
+did = document.getElementById(Math.ceil(Math.random() * rows) + "a" + Math.ceil(Math.random() * cols))
+if (did.className != "bomb"){
+did.className = "bomb"
+k++
+}
+}
+flags.innerHTML = k
+}
+else if (e.key == "Enter") {
+alert("PLEASE ENTER ONLY NUMBERS ABOVE 4")
+}
+})
+
+function check(caze, auto){
+caze.style.background = "white"
+if (caze.className == "bomb") {
+Array.from(document.getElementsByClassName("bomb")).forEach(function(item){
+item.innerHTML = "X"
+})
+}
+else {
+idd = [parseInt(caze.id.split("a")[0]) - 1 + "a" + (parseInt(caze.id.split("a")[1]) - 1) , parseInt(caze.id.split("a")[0]) + 1 + "a" + (parseInt(caze.id.split("a")[1])) , parseInt(caze.id.split("a")[0]) + 1 + "a" + (parseInt(caze.id.split("a")[1]) - 1) , parseInt(caze.id.split("a")[0]) + 1 + "a" + (parseInt(caze.id.split("a")[1]) + 1) , parseInt(caze.id.split("a")[0]) + "a" + (parseInt(caze.id.split("a")[1]) + 1) , parseInt(caze.id.split("a")[0]) + "a" + (parseInt(caze.id.split("a")[1]) - 1) , parseInt(caze.id.split("a")[0]) - 1 + "a" + (parseInt(caze.id.split("a")[1]) + 1) , parseInt(caze.id.split("a")[0]) - 1 + "a" + (parseInt(caze.id.split("a")[1]))]
+l = 0 
+idd.forEach(function(item){if(document.getElementById(item) != null && document.getElementById(item).className == "bomb"){
+l++
+}
+})
+caze.innerHTML = l
+if (l == 1) {
+caze.style.color = "blue"
+} 
+if (l == 2) {
+caze.style.color = "lime"
+} 
+if (l == 3) {
+caze.style.color = "red"
+} 
+if (l == 4) {
+caze.style.color = "purple"
+} 
+if (l == 5) {
+caze.style.color = "yellow"
+} 
+if (l == 6) {
+caze.style.color = "orange"
+} 
+if (l == 7) {
+caze.style.color = "black"
+} 
+if (l == 8) {
+caze.style.color = "orange"
+} 
+
+if (caze.innerHTML == 0 && auto == "no") {
+idd.forEach(function(item, index){if(document.getElementById(item) != null) {
+check(document.getElementById(item), "yes")
+if (index == 7) {
+strasser.forEach(function(idem){if(idem != null) {
+check(idem, "no")
+}
+})
+strasser = []
+}
+}})
+}
+else if (caze.innerHTML == 0 && auto == "yes"){
+strasser.push(caze)
+}
+}
+}
+window.addEventListener("contextmenu", function(e){
+if (event.target.innerHTML != "P" && document.getElementsByTagName("div")[1].innerHTML > 0){
+document.getElementsByTagName("div")[1].innerHTML = parseInt(document.getElementsByTagName("div")[1].innerHTML) - 1
+event.target.innerHTML = "P"
+event.target.style.color = "red"
+}
+else if(document.getElementsByTagName("div")[1].innerHTML > 0) {
+document.getElementsByTagName("div")[1].innerHTML = parseInt(document.getElementsByTagName("div")[1].innerHTML) + 1
+e.target.innerHTML = ""
+}
+}, true)
+</script>
+</body>
+</html>
